@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0170d844c795353478ae7425563675b4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70173f4ab1bdf9f4b9db283e08f2ba4f, type: 2}
     - target: {fileID: 919132149155446097, guid: 0170d844c795353478ae7425563675b4, type: 3}
       propertyPath: m_Name
       value: Casa Molino 1
@@ -255,6 +259,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0e59b7da5a2aa3543b9d0cdc67cbea9f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70173f4ab1bdf9f4b9db283e08f2ba4f, type: 2}
     - target: {fileID: 919132149155446097, guid: 0e59b7da5a2aa3543b9d0cdc67cbea9f, type: 3}
       propertyPath: m_Name
       value: Cerca Granja
@@ -424,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67a2acbd47ff3854fb2fe8944172d145, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 639.9
+      value: 630.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67a2acbd47ff3854fb2fe8944172d145, type: 3}
       propertyPath: m_LocalPosition.y
@@ -432,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67a2acbd47ff3854fb2fe8944172d145, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 339.20203
+      value: 283
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67a2acbd47ff3854fb2fe8944172d145, type: 3}
       propertyPath: m_LocalRotation.w
@@ -462,6 +470,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 67a2acbd47ff3854fb2fe8944172d145, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70173f4ab1bdf9f4b9db283e08f2ba4f, type: 2}
     - target: {fileID: 919132149155446097, guid: 67a2acbd47ff3854fb2fe8944172d145, type: 3}
       propertyPath: m_Name
       value: _lmacen 2
@@ -683,6 +695,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 11d1b790a012ddb40b71c9a4fb4c117e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5ed4790fc5b6be342a89203c87adb48b, type: 2}
     - target: {fileID: 919132149155446097, guid: 11d1b790a012ddb40b71c9a4fb4c117e, type: 3}
       propertyPath: m_Name
       value: Puente
@@ -821,6 +837,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8dd081fafb4d5f141826a733771c8429, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70173f4ab1bdf9f4b9db283e08f2ba4f, type: 2}
     - target: {fileID: 919132149155446097, guid: 8dd081fafb4d5f141826a733771c8429, type: 3}
       propertyPath: m_Name
       value: Cerca Gallinas
@@ -890,6 +910,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 996286782015f2d4aaf104edc7097d8e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70173f4ab1bdf9f4b9db283e08f2ba4f, type: 2}
     - target: {fileID: 919132149155446097, guid: 996286782015f2d4aaf104edc7097d8e, type: 3}
       propertyPath: m_Name
       value: Casa Gallo
@@ -1120,6 +1144,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 45db5d5562ce70145b0d076c58f1d98f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70173f4ab1bdf9f4b9db283e08f2ba4f, type: 2}
     - target: {fileID: 919132149155446097, guid: 45db5d5562ce70145b0d076c58f1d98f, type: 3}
       propertyPath: m_Name
       value: Casa Gallina
@@ -1265,6 +1293,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fe7c1de821e56394f8eb1237e3ee3191, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70173f4ab1bdf9f4b9db283e08f2ba4f, type: 2}
     - target: {fileID: 919132149155446097, guid: fe7c1de821e56394f8eb1237e3ee3191, type: 3}
       propertyPath: m_Name
       value: Almacen 1
@@ -1300,7 +1332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 563d6bebea7d8f145badae8997cdfb34, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37.58
+      value: 41.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 563d6bebea7d8f145badae8997cdfb34, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1334,6 +1366,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 563d6bebea7d8f145badae8997cdfb34, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70173f4ab1bdf9f4b9db283e08f2ba4f, type: 2}
     - target: {fileID: 919132149155446097, guid: 563d6bebea7d8f145badae8997cdfb34, type: 3}
       propertyPath: m_Name
       value: "Orde\xF1ar Vaca"
@@ -1403,6 +1439,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 34562f7d999c9b3428ba3c745e0f8193, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 70173f4ab1bdf9f4b9db283e08f2ba4f, type: 2}
     - target: {fileID: 919132149155446097, guid: 34562f7d999c9b3428ba3c745e0f8193, type: 3}
       propertyPath: m_Name
       value: Casa Vaca
