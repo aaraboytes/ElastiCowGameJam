@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FPSPlayer : MonoBehaviour
 {
+    public bool IsRunning => running;
+
     [SerializeField] bool _invertY = false;
     [SerializeField] float _movementSpeed;
     [SerializeField] float _runSpeed;
@@ -12,6 +14,7 @@ public class FPSPlayer : MonoBehaviour
     [SerializeField] Vector2 _sensibility;
     [SerializeField] Camera _playerCamera;
 
+    private bool running = false;
     private float camVerticalAngle;
     private CharacterController character;
     private Vector3 movInput;
@@ -36,7 +39,8 @@ public class FPSPlayer : MonoBehaviour
             movInput = Input.GetAxis("Horizontal") * Vector3.right + Input.GetAxis("Vertical") * Vector3.forward;
             movInput = Vector3.ClampMagnitude(movInput, 1);
 
-            if (Input.GetButton("Sprint"))
+            running = Input.GetButton("Sprint");
+            if (running)
                 movInput *= _runSpeed;
             else
                 movInput *= _movementSpeed;

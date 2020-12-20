@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class IO_Ubbers : InteractuableObject
 {
+    [SerializeField] Cow _cow;
     [SerializeField] UbberDetector _ubbersDetector;
     private void Start()
     {
@@ -12,6 +13,11 @@ public class IO_Ubbers : InteractuableObject
     public override void Activate()
     {
         base.Activate();
-        _ubbersDetector.FillBucket();
+        if (_cow.IsFake)
+        {
+            _cow.TransitionToElasticow();
+        }
+        else
+            _ubbersDetector.FillBucket();
     }
 }
