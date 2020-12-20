@@ -65,7 +65,7 @@ public class Elasticow : MonoBehaviour
                 }
             }
         }
-        if (Vector3.Distance(player.transform.position, transform.position) <= 2f)
+        if (Vector3.Distance(player.transform.position, transform.position) <= 2.5f)
         {
             agent.SetDestination(transform.position);
             KillPlayer();
@@ -142,6 +142,7 @@ public class Elasticow : MonoBehaviour
     private void KillPlayer()
     {
         audio.Play();
+        agent.enabled = false;
         FindObjectOfType<PlayerKiller>().Kill();
         _head.LookAt(_playerEyes);
         enabled = false;
