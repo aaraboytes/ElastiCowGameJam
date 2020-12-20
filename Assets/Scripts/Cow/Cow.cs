@@ -85,7 +85,7 @@ public class Cow : MonoBehaviour
         _elasticowModel.SetActive(true);
         Invoke(nameof(ReplaceObject), 1);
     }
-    private void SwitchModelToNormalCow()
+    public void SwitchModelToNormalCow()
     {
         _normalCowModel.SetActive(true);
         _elasticowModel.SetActive(false);

@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class PlayerGrab : MonoBehaviour
 {
+    public static UnityAction OnObjectGrabbed;
+    public static UnityAction OnObjectDropped;
+    public static InteractuableObject GrabbedObject;
+
     [SerializeField] GameObject _grabPoint;
     [SerializeField] PlayerItems _items;
 
@@ -26,7 +30,9 @@ public class PlayerGrab : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") && PlayerSight.InSightObject)
             {
+                OnObjectGrabbed?.Invoke();
                 InteractuableObject interactuableObject = PlayerSight.InSightObject;
+                GrabbedObject = interactuableObject;
                 switch (interactuableObject.interactionType)
                 {
                     case InteractuableObject.InteractionType.Activable:
@@ -52,7 +58,9 @@ public class PlayerGrab : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1") && joint)
         {
+            OnObjectDropped?.Invoke();
             Destroy(joint);
+            GrabbedObject = null;
         }
     }
     private void GrabOpportunity() => grabOpportunity = true;

@@ -41,6 +41,7 @@ public class CowsManager : MonoBehaviour
         Physics.Raycast(spawnLocation.position + Vector3.up,Vector3.down, out hit, _groundLayer);
         cow.Agent.Warp(hit.point + Vector3.up * 0.5f);
         cow.ResetAgent();
+        cow.SwitchModelToNormalCow();
     }
 
     public void ScareCows(Vector3 position, float radius)
