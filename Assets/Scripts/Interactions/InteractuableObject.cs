@@ -7,6 +7,9 @@ public class InteractuableObject : MonoBehaviour
     public enum InteractionType { Activable, Grabbable, Pickable };
     public InteractionType interactionType = InteractionType.Activable;
     public ItemData itemData;
+    [Header("Item description")]
+    public string Name;
+    public string interactionMessage;
     public virtual void Activate()
     {
         Debug.Log("Activate");

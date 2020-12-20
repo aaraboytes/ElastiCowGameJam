@@ -9,6 +9,8 @@ public class Elasticow : MonoBehaviour
     [SerializeField] float _madTime;
     [SerializeField] LayerMask _groundLayer;
     [SerializeField] Transform _eyes;
+    [SerializeField] Transform _head;
+    [SerializeField] Transform _playerEyes;
 
     [Header("Movement")]
     [SerializeField] float _normalSpeed;
@@ -62,6 +64,11 @@ public class Elasticow : MonoBehaviour
                     StartCoroutine(lookingCoroutine);
                 }
             }
+        }
+        if (Vector3.Distance(player.transform.position, transform.position) <= 2f)
+        {
+            agent.SetDestination(transform.position);
+            KillPlayer();
         }
     }
     private void OnTriggerStay(Collider other)
@@ -131,6 +138,13 @@ public class Elasticow : MonoBehaviour
         {
             randomBehaviour = false;
         }
+    }
+    private void KillPlayer()
+    {
+        audio.Play();
+        FindObjectOfType<PlayerKiller>().Kill();
+        _head.LookAt(_playerEyes);
+        enabled = false;
     }
     private bool SearchRandomLocation()
     {
