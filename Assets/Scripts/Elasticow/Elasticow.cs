@@ -9,7 +9,13 @@ public class Elasticow : MonoBehaviour
     [SerializeField] float _madTime;
     [SerializeField] LayerMask _groundLayer;
     [SerializeField] Transform _eyes;
+
+    [Header("Movement")]
+    [SerializeField] float _normalSpeed;
+    [SerializeField] float _scapingSpeed;
+
     private bool mooing = false;
+    private bool scaping = false;
     private bool randomBehaviour = true;
     private bool lookingForPlayer = false;
     private bool playerInSight = false;
@@ -21,6 +27,7 @@ public class Elasticow : MonoBehaviour
     private FPSPlayer playerFPS;
     private SphereCollider sphereTrigger;
     private IEnumerator lookingCoroutine;
+    private IEnumerator scapingCoroutine;
     private void OnDrawGizmosSelected()
     {
         if(agent) Gizmos.DrawSphere(agent.destination, 1);
@@ -36,6 +43,7 @@ public class Elasticow : MonoBehaviour
     private void Start()
     {
         outOfSightTimer = _madTime;
+        agent.speed = _normalSpeed;
     }
     private void Update()
     {
@@ -60,7 +68,7 @@ public class Elasticow : MonoBehaviour
     {
         if(other.gameObject == player)
         {
-            if (!mooing)
+            if (!mooing && !scaping)
             {
                 playerInSight = false;
                 Vector3 dir = player.transform.position - _eyes.position;
@@ -113,7 +121,8 @@ public class Elasticow : MonoBehaviour
         if (other.gameObject == player)
         {
             playerInSight = false;
-            randomBehaviour = true;
+            if(!scaping)
+                randomBehaviour = true;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -162,12 +171,54 @@ public class Elasticow : MonoBehaviour
             yield return null;
         lookingForPlayer = false;
     }
-
     private IEnumerator Moo()
     {
         mooing = true;
         audio.Play();
         yield return new WaitForSeconds(3);
         mooing = false;
+    }
+    private IEnumerator ScareRun(Vector3 dir, float distance)
+    {
+        Vector3 farTarget = transform.position + dir * distance;
+        RaycastHit hit;
+        if (Physics.Raycast(_eyes.position + Vector3.up * 0.5f, dir, out hit, distance))
+            farTarget = hit.point - dir * 0.1f;
+
+        Vector3 destination = transform.position;
+        bool groundTargetFound = false;
+        while (!groundTargetFound)
+        {
+            if(Physics.Raycast(farTarget + Vector3.up, Vector3.down,out hit, _groundLayer))
+            {
+                destination = hit.point;
+                groundTargetFound = true;
+            }
+            farTarget -= dir * 0.1f;
+            yield return null;
+        }
+        agent.speed = _scapingSpeed;
+        agent.SetDestination(destination);
+        while (agent.remainingDistance > 0.1f)
+        {
+            Debug.Log("elasticow scaping"+agent.remainingDistance);
+            yield return null;
+        }
+        scaping = false;
+        agent.speed = _normalSpeed;
+        randomBehaviour = true;
+    }
+    public void Scare(Vector3 scarePos,float radius)
+    {
+        scaping = true;
+        randomBehaviour = false;
+        Debug.Log("Elasticow scared");
+        Vector3 dir = transform.position - scarePos;
+        float distance = radius - dir.magnitude;
+        dir.Normalize();
+        if (scapingCoroutine != null)
+            StopCoroutine(scapingCoroutine);
+        scapingCoroutine = ScareRun(dir, distance);
+        StartCoroutine(scapingCoroutine);
     }
 }

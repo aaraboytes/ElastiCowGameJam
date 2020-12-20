@@ -42,4 +42,15 @@ public class CowsManager : MonoBehaviour
         cow.Agent.Warp(hit.point + Vector3.up * 0.5f);
         cow.ResetAgent();
     }
+
+    public void ScareCows(Vector3 position, float radius)
+    {
+        if (Vector3.Distance(elasticow.transform.position, position) <= radius)
+            elasticow.Scare(position, radius);
+        foreach (var cow in cows)
+        {
+            if (Vector3.Distance(cow.transform.position, position) <= radius)
+                cow.Scare(position, radius);
+        }
+    }
 }
