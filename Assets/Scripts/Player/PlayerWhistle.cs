@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class PlayerWhistle : MonoBehaviour
 {
     [SerializeField] float _blowRadius;
@@ -9,7 +9,9 @@ public class PlayerWhistle : MonoBehaviour
     [SerializeField] PlayerItems _playerItems;
     [SerializeField] ItemData _whistleyData;
     [SerializeField] AudioClip _whistleySound;
+    [SerializeField] TextMeshProUGUI _whistleNumberText;
 
+    private int whistleNumber = 0;
     private float timer = 0;
     private AudioSource audio;
 
@@ -21,6 +23,11 @@ public class PlayerWhistle : MonoBehaviour
     private void Awake()
     {
         audio = GetComponent<AudioSource>();
+    }
+    private void Start()
+    {
+        _whistleNumberText.text = "x0";
+        PlayerItems.OnObjectPicked += AddWhistle;
     }
     private void Update()
     {
@@ -35,6 +42,14 @@ public class PlayerWhistle : MonoBehaviour
         }
         if (timer > 0)
             timer -= Time.deltaTime;
+    }
+    private void AddWhistle()
+    {
+        if(PlayerItems.LastPickedObject == _whistleyData)
+        {
+            whistleNumber++;
+            _whistleNumberText.text = $"x{whistleNumber}";
+        }
     }
     private void Blow()
     {

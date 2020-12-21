@@ -5,17 +5,22 @@ using UnityEngine.AI;
 
 public class Elasticow : MonoBehaviour
 {
-    [SerializeField] float _fieldOfViewAngle = 110f;
-    [SerializeField] float _madTime;
-    [SerializeField] LayerMask _groundLayer;
+    public bool Attacking => attacking;
+
+    [Header("Cow components")]
     [SerializeField] Transform _eyes;
     [SerializeField] Transform _head;
-    [SerializeField] Transform _playerEyes;
+
+    [Header("Scenario")]
+    [SerializeField] LayerMask _groundLayer;
 
     [Header("Movement")]
+    [SerializeField] float _madTime;
+    [SerializeField] float _fieldOfViewAngle = 110f;
     [SerializeField] float _normalSpeed;
     [SerializeField] float _scapingSpeed;
 
+    private bool attacking = false;
     private bool mooing = false;
     private bool scaping = false;
     private bool randomBehaviour = true;
@@ -28,6 +33,7 @@ public class Elasticow : MonoBehaviour
     private GameObject player;
     private FPSPlayer playerFPS;
     private SphereCollider sphereTrigger;
+    private Transform playerEyes;
     private IEnumerator lookingCoroutine;
     private IEnumerator scapingCoroutine;
     private void OnDrawGizmosSelected()
@@ -46,12 +52,17 @@ public class Elasticow : MonoBehaviour
     {
         outOfSightTimer = _madTime;
         agent.speed = _normalSpeed;
+        playerEyes = Camera.main.transform;
     }
     private void Update()
     {
         if (!playerInSight)
         {
             outOfSightTimer += Time.deltaTime;
+        }
+        if (outOfSightTimer > _madTime)
+        {
+            attacking = false;
         }
         if (randomBehaviour)
         {
@@ -144,7 +155,7 @@ public class Elasticow : MonoBehaviour
         audio.Play();
         agent.enabled = false;
         FindObjectOfType<PlayerKiller>().Kill();
-        _head.LookAt(_playerEyes);
+        _head.LookAt(playerEyes);
         enabled = false;
     }
     private bool SearchRandomLocation()
@@ -188,6 +199,7 @@ public class Elasticow : MonoBehaviour
     }
     private IEnumerator Moo()
     {
+        attacking = true;
         mooing = true;
         audio.Play();
         yield return new WaitForSeconds(3);

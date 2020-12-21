@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 6335102677386852748}
   - component: {fileID: 6936974735734208041}
   - component: {fileID: 5161655744526484195}
-  m_Layer: 0
+  - component: {fileID: 4626223154716050519}
+  - component: {fileID: 5848773820761973413}
+  m_Layer: 8
   m_Name: Silbato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6674650196459430710}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.41976702, y: 0.004107968, z: 1.2735615}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.3974, y: 2.3974, z: 2.3974}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &6936974735734208041
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -82,3 +84,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4626223154716050519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674650196459430710}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10716414, y: 0.0793481, z: 0.04448968}
+  m_Center: {x: -0.006574909, y: -0.00091028924, z: 0.018136868}
+--- !u!114 &5848773820761973413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674650196459430710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37eb043d02bec68468c9b442227a0e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 0
+  itemData: {fileID: 11400000, guid: 802e1f8f54f14a04aadcb15c3ebf8e78, type: 2}
+  Name: Silbato
+  interactionMessage: Las vacas son ahuyentadas por este instrumento.

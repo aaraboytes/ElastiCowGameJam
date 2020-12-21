@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class PlayerItems : MonoBehaviour
 {
+    public static UnityAction OnObjectPicked;
+    public static ItemData LastPickedObject;
     public List<ItemData> Items => items;
     [SerializeField] InventoryUI inventoryUI;
     [SerializeField] private List<ItemData> items = new List<ItemData>();
@@ -23,6 +25,8 @@ public class PlayerItems : MonoBehaviour
     public void AddItem(ItemData newItem)
     {
         items.Add(newItem);
+        LastPickedObject = newItem;
+        OnObjectPicked?.Invoke();
     }
     public void FillBucket()
     {

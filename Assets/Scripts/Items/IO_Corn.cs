@@ -16,6 +16,7 @@ public class IO_Corn : InteractuableObject
     private void Start()
     {
         interactionType = InteractionType.Grabbable;
+        body.AddTorque(Vector3.up * Random.Range(10, 50));
     }
     private void Update()
     {

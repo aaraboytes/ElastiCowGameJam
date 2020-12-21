@@ -30,7 +30,6 @@ public class PlayerGrab : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1") && PlayerSight.InSightObject)
             {
-                OnObjectGrabbed?.Invoke();
                 InteractuableObject interactuableObject = PlayerSight.InSightObject;
                 GrabbedObject = interactuableObject;
                 switch (interactuableObject.interactionType)
@@ -46,6 +45,7 @@ public class PlayerGrab : MonoBehaviour
                         joint.connectedBody = grabbedBody;
                         joint.autoConfigureConnectedAnchor = false;
                         joint.anchor = Vector3.zero;
+                        OnObjectGrabbed?.Invoke();
                         break;
                     case InteractuableObject.InteractionType.Pickable:
                         ItemData data = interactuableObject.Pick();
@@ -58,7 +58,8 @@ public class PlayerGrab : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1") && joint)
         {
-            OnObjectDropped?.Invoke();
+            if(GrabbedObject)
+                OnObjectDropped?.Invoke();
             Destroy(joint);
             GrabbedObject = null;
         }
