@@ -23,6 +23,7 @@ public class UbberDetector : MonoBehaviour
             if (!bucket.IsFilled)
             {
                 bucket.Fill();
+                CowsManager.Instance.NotifyCowMilking();
                 break;
             }
         }

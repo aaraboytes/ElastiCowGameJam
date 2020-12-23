@@ -6,8 +6,12 @@ public class CowsManager : MonoBehaviour
 {
     public static CowsManager Instance;
 
+    public int MilkedCowNumber => milkedCowsNumber;
+    
     [SerializeField] Transform[] cowSpawnLocations;
     [SerializeField] LayerMask _groundLayer;
+
+    private int milkedCowsNumber;
     private Elasticow elasticow;
     private Cow[] cows;
 
@@ -31,6 +35,12 @@ public class CowsManager : MonoBehaviour
         }
         return selectedLocation;
     }
+
+    public void NotifyCowMilking()
+    {
+        milkedCowsNumber++;
+    }
+
     public void SwitchElasticow(Cow cow)
     {
         elasticow.transform.rotation = cow.transform.rotation;

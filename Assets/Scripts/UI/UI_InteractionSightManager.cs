@@ -16,6 +16,13 @@ public class UI_InteractionSightManager : MonoBehaviour
         PlayerGrab.OnObjectGrabbed += DisableDescription;
         camera = Camera.main;
     }
+    private void OnDestroy()
+    {
+        PlayerSight.OnSightObject -= DescribeObject;
+        PlayerSight.OnSightStop -= StopDescription;
+        PlayerGrab.OnObjectDropped -= EnableDescription;
+        PlayerGrab.OnObjectGrabbed -= DisableDescription;
+    }
     private void Update()
     {
         if(targetPos!=Vector3.zero && _description.gameObject.activeInHierarchy)

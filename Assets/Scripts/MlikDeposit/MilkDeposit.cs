@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
+
 public class MilkDeposit : MonoBehaviour
 {
+    public UnityAction OnMilkDeposited;
     public UnityAction OnDepositFilled;
     [SerializeField] TextMeshProUGUI _remainingBucketsText;
     [SerializeField] int remainingBuckets;
@@ -17,6 +19,7 @@ public class MilkDeposit : MonoBehaviour
     {
         remainingBuckets--;
         _remainingBucketsText.text = remainingBuckets.ToString();
+        OnMilkDeposited?.Invoke();
         if(remainingBuckets == 0)
         {
             OnDepositFilled?.Invoke();

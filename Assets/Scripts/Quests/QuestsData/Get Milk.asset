@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec8f959106afa64fbb8df7ee6afee3e, type: 3}
-  m_Name: Pick bucket
+  m_Script: {fileID: 11500000, guid: 6395403ef7fe47241a6001e99cd9e79f, type: 3}
+  m_Name: Get Milk
   m_EditorClassIdentifier: 
-  QuestName: wwwwwwwww
-  QuestDescription: Toma una cubeta para recoger la leche.
+  QuestName: Obten leche de una vaca.
+  QuestDescription: Obten la leche de una vaca.
   Finished: 1
   SequentQuests:
-  - {fileID: 11400000, guid: 8c8fbe2489abfe748854dbb523017ba8, type: 2}
+  - {fileID: 11400000, guid: 313f3c3d82a77404985d0cdbf9dd259e, type: 2}

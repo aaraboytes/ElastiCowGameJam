@@ -21,8 +21,8 @@ public class PlayerGrab : MonoBehaviour
     }
     private void OnDestroy()
     {
-        PlayerSight.OnSightObject -= GrabOpportunity;
-        PlayerSight.OnSightStop -= RemoveGrabOpportunity;
+        PlayerSight.OnSightObject = null;
+        PlayerSight.OnSightStop = null;
     }
     private void Update()
     {

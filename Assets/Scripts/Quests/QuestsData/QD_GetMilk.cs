@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QD_GetMilk : MonoBehaviour
+[CreateAssetMenu(fileName = "Get Milk", menuName = "Quests/Get milk")]
+public class QD_GetMilk : QuestData
 {
-    // Start is called before the first frame update
-    void Start()
+    private int currentMilkedCows;
+    private void Start()
     {
-        
+        currentMilkedCows = CowsManager.Instance.MilkedCowNumber;
     }
-
-    // Update is called once per frame
-    void Update()
+    public override void Check()
     {
-        
+        int milkedCows = CowsManager.Instance.MilkedCowNumber;
+        if(milkedCows != currentMilkedCows)
+        {
+            Finished = true;
+            QuestManager.Instance.FinishTask(this);
+        }
     }
 }

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec8f959106afa64fbb8df7ee6afee3e, type: 3}
-  m_Name: Pick bucket
+  m_Script: {fileID: 11500000, guid: 5314b55125afd8c4e9e0e0581625d76e, type: 3}
+  m_Name: Deposit milk
   m_EditorClassIdentifier: 
-  QuestName: wwwwwwwww
-  QuestDescription: Toma una cubeta para recoger la leche.
-  Finished: 1
+  QuestName: Deposita la leche
+  QuestDescription: Deposita la leche en el almacen de leche
+  Finished: 0
   SequentQuests:
-  - {fileID: 11400000, guid: 8c8fbe2489abfe748854dbb523017ba8, type: 2}
+  - {fileID: 11400000, guid: f20a18495e3192941897ac153b6dd25f, type: 2}

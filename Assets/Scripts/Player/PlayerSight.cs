@@ -13,7 +13,12 @@ public class PlayerSight : MonoBehaviour
     [SerializeField] LayerMask _interactuableMask;
 
     private bool OnSight = false;
-    
+
+    private void OnDestroy()
+    {
+        OnSightObject = null;
+        OnSightStop = null;
+    }
     private void Update()
     {
         RaycastHit hit;

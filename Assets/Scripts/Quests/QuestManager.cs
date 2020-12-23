@@ -32,5 +32,10 @@ public class QuestManager : MonoBehaviour
         quests.Remove(questData);
         _uiList.Remove(questData);
         OnQuestFinished?.Invoke();
+        if(questData.SequentQuests != null && questData.SequentQuests.Length > 0)
+        {
+            foreach(var sequentQuest in questData.SequentQuests)
+                AddNewTask(sequentQuest);
+        }
     }
 }
